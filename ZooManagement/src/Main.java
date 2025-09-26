@@ -1,26 +1,21 @@
 import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
+       Animal lion= new Animal("dfdg","sdxf",55,true);
+       Zoo myZoo = new Zoo("ffff","ghh",5);
+        Animal lion2= new Animal("llll","dddd",56,true);
+        Animal lion3= new Animal("hhhh","jjj",3,true);
 
-        // Version avec valeurs par défaut
-        int nbrCages = 20;
-        String zooName = "my zoo";
-        System.out.println(zooName + " comporte " + nbrCages + " cages");
+        //myZoo.displayZoo();
+        //System.out.println("//////////////////////////////////////////////////");
+        //lion.displayAnimal();
+        System.out.println("////////////animal//////////////////////////////");
+        System.out.println(lion);
+        System.out.println("////////////zoo/////////////////////////////////");
+        System.out.println(myZoo);
 
-        // Version avec saisie utilisateur
-        System.out.print("Entrez le nom du zoo : ");
-        zooName = input.nextLine();
 
-        System.out.print("Entrez le nombre de cages : ");
-        nbrCages = input.nextInt();
-
-        if (nbrCages > 0) {
-            System.out.println(zooName + " comporte " + nbrCages + " cages");
-        } else {
-            System.out.println("Erreur : le nombre de cages doit être positif !");
-        }
-
-        input.close();
     }
 }
+
+
