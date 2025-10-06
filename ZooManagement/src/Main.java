@@ -54,6 +54,8 @@ public class Main {
         } else {
             System.out.println(" Il reste encore de la place !");
         }
+        // Essai d’ajouter un 26e animal
+        myZoo.addAnimal(new Animal("Extra", "Test", 1, true));
 
 
 
