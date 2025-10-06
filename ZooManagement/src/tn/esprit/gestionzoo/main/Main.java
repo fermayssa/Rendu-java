@@ -1,4 +1,9 @@
-import java.util.Scanner;
+package tn.esprit.gestionzoo.main;
+
+
+import tn.esprit.gestionzoo.entities.Animal;
+import tn.esprit.gestionzoo.entities.Zoo;
+
 public class Main {
     public static void main(String[] args) {
        Animal lion= new Animal("dfdg","sdxf",55,true);
@@ -20,13 +25,13 @@ public class Main {
         System.out.println(myZoo.addAnimal(lion3));
         // Test : remplir le zoo de manière forcée
         for (int i = 0; i < 30; i++) {
-            boolean added = myZoo.addAnimal(new Animal("Test", "Animal" + i, i, true));
-            System.out.println("Ajout de Animal" + i + " : " + added);
+            boolean added = myZoo.addAnimal(new tn.esprit.gestionzoo.entities.Animal("Test", "tn.esprit.gestionzoo.entities.Animal" + i, i, true));
+            System.out.println("Ajout de tn.esprit.gestionzoo.entities.Animal" + i + " : " + added);
         }*/
         //-------------------------------prosit3------------------------------------
 
 
-        Zoo myZoo1 = new Zoo("Esprit Zoo", "Tunis", 20);
+        Zoo myZoo1 = new Zoo("Esprit tn.esprit.gestionzoo.entities.Zoo", "Tunis", 20);
         Animal lion11 = new Animal("Félins", "Lion", 5, true);
         // Ajout de l’animal dans le zoo
         myZoo1.addAnimal(lion);
@@ -45,7 +50,7 @@ public class Main {
 
         // Ajouter quelques animaux
         for (int i = 0; i < 25; i++) {
-            myZoo.addAnimal(new Animal("Animal" + i, "Espèce" + i, i, true));
+            myZoo.addAnimal(new Animal("tn.esprit.gestionzoo.entities.Animal" + i, "Espèce" + i, i, true));
         }
 
         // Vérifier si le zoo est plein

@@ -1,3 +1,5 @@
+package tn.esprit.gestionzoo.entities;
+
 public class Zoo {
     private Animal[] animals;
     private String name;
@@ -20,7 +22,7 @@ public class Zoo {
     public void setName(String name) {
         if (name == null || name.trim().isEmpty()) {
             System.out.println("❌ Le nom du zoo ne peut pas être vide !");
-            this.name = "Zoo Sans Nom"; // Valeur par défaut
+            this.name = "tn.esprit.gestionzoo.entities.Zoo Sans Nom"; // Valeur par défaut
         } else {
             this.name = name;
         }
@@ -55,7 +57,7 @@ public class Zoo {
 
     }
 
-    boolean addAnimal(Animal animal) {
+    public boolean addAnimal(Animal animal) {
         // Vérifier si le zoo est plein
        /* int count = 0;
         for (int i = 0; i < animals.length; i++) {
@@ -76,7 +78,7 @@ public class Zoo {
         // Vérifier si l’animal existe déjà (même nom)
         for (int i = 0; i < animals.length; i++) {
             if (animals[i] != null && animals[i].getName().equals(animal.getName())) {
-                System.out.println(" Animal déjà présent : " + animal.getName());
+                System.out.println(" tn.esprit.gestionzoo.entities.Animal déjà présent : " + animal.getName());
                 return false;
             }
         }
@@ -85,7 +87,7 @@ public class Zoo {
         for (int i = 0; i < animals.length; i++) {
             if (animals[i] == null) {
                 animals[i] = animal;
-                System.out.println(" Animal ajouté : " + animal.getName());
+                System.out.println(" tn.esprit.gestionzoo.entities.Animal ajouté : " + animal.getName());
                 return true;
             }
         }
@@ -97,7 +99,7 @@ public class Zoo {
 
 
 
-    void displayAnimals() {
+    public void displayAnimals() {
         System.out.println("Animaux du zoo " + name + " :");
         for (int i = 0; i < animals.length; i++) {
             if (animals[i] != null) {
@@ -106,7 +108,7 @@ public class Zoo {
         }
     }
 
-    int searchAnimal(Animal animal) {
+    public int searchAnimal(Animal animal) {
         for (int i = 0; i < animals.length; i++) {
             if (animals[i] != null && animals[i].getName().equals(animal.getName())) {
                 return i; // on retourne l’indice trouvé
@@ -114,18 +116,18 @@ public class Zoo {
         }
         return -1; // non trouvé
     }
-    boolean removeAnimal(Animal animal) {
+    public boolean removeAnimal(Animal animal) {
         for (int i = 0; i < animals.length; i++) {
             if (animals[i] != null && animals[i].getName().equals(animal.getName())) {
                 animals[i] = null; // on supprime
-                System.out.println(" Animal supprimé : " + animal.getName());
+                System.out.println(" tn.esprit.gestionzoo.entities.Animal supprimé : " + animal.getName());
                 return true;
             }
         }
-        System.out.println(" Animal introuvable : " + animal.getName());
+        System.out.println(" tn.esprit.gestionzoo.entities.Animal introuvable : " + animal.getName());
         return false;
     }
-    boolean isZooFull() {
+    public boolean isZooFull() {
         int count = 0;
 
         // Compter le nombre d’animaux non nuls dans le tableau
@@ -138,7 +140,7 @@ public class Zoo {
         // Comparer avec le nombre maximal de cages
         return count >= NBR_CAGES;
     }
-    Zoo comparerZoo(Zoo z1, Zoo z2) {
+    public Zoo comparerZoo(Zoo z1, Zoo z2) {
         int count1 = 0;
         int count2 = 0;
 
