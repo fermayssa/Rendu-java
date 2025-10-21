@@ -10,22 +10,37 @@ public class Main {
         Animal lion2= new Animal("llll","dddd",56,true);
         Animal lion3= new Animal("hhhh","jjj",3,true);
         /// ///////////////////////////////
-        Aquatic fish = new Aquatic();
+        //Aquatic fish = new Aquatic();
         Terrestrial lion5 = new Terrestrial();
         Dolphin D1 = new Dolphin();
         Penguin P11 = new Penguin();
 
-        System.out.println(fish);
+        //System.out.println(fish);
         System.out.println(D1);
         System.out.println(P11);
 
-        fish.swim();
+        //fish.swim();
         D1.swim();
         P11.swim();
+/// ////////////////////////////////////////////////////////////////////////////
+
+
+        //Aquatic a1 = new Aquatic();
+        Dolphin d1 = new Dolphin();
+        Penguin p1 = new Penguin();
+
+        //myZoo.addAquaticAnimal(a1);
+        myZoo.addAquaticAnimal(d1);
+        myZoo.addAquaticAnimal(p1);
+        myZoo.makeAquaticsSwim();
+
+
+        System.out.println("Profondeur max des pingouins : " + myZoo.maxPenguinSwimmingDepth());
+        myZoo.displayNumberOfAquaticsByType();
 
 
 
-
+/// ///////////////////////////////////////////////////////////////////////////
         /*//myZoo.displayZoo();
         //System.out.println("//////////////////////////////////////////////////");
         //lion.displayAnimal();

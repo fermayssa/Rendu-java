@@ -7,6 +7,9 @@ public class Zoo {
     //int nbrCages;
     private static final int NBR_CAGES = 25;
 
+    private Aquatic[] aquaticAnimals = new Aquatic[10];
+    private int aquaticCount = 0;
+
 
     public Zoo(String name,String city,int nbrCages){
         setName(name);
@@ -56,6 +59,35 @@ public class Zoo {
 
 
     }
+    public float maxPenguinSwimmingDepth() {
+        float max = 0;
+        for (int i = 0; i < aquaticCount; i++) {
+            if (aquaticAnimals[i] instanceof Penguin) {
+                Penguin p = (Penguin) aquaticAnimals[i];
+                if (p.getSwimmingDepth() > max) {
+                    max = p.getSwimmingDepth();
+                }
+            }
+        }
+        return max;
+    }
+
+    public void displayNumberOfAquaticsByType() {
+        int dolphins = 0, penguins = 0;
+
+        for (int i = 0; i < aquaticCount; i++) {
+            if (aquaticAnimals[i] instanceof Dolphin)
+                dolphins++;
+            else if (aquaticAnimals[i] instanceof Penguin)
+                penguins++;
+        }
+
+        System.out.println("Nombre de dauphins : " + dolphins);
+        System.out.println("Nombre de pingouins : " + penguins);
+    }
+
+
+
 
     public boolean addAnimal(Animal animal) {
         // Vérifier si le zoo est plein
@@ -170,7 +202,21 @@ public class Zoo {
             return null; // égalité
         }
     }
+    /// ////////////////////////////////////////////////////////////////
+    public void addAquaticAnimal(Aquatic aquatic) {
+        if (aquaticCount < aquaticAnimals.length) {
+            aquaticAnimals[aquaticCount] = aquatic;
+            aquaticCount++;
+        } else {
+            System.out.println("Le zoo ne peut plus accueillir d'animaux aquatiques !");
+        }
+    }
 
+    public void makeAquaticsSwim() {
+        for (int i = 0; i < aquaticCount; i++) {
+            aquaticAnimals[i].swim();
+        }
+    }
 
 
 
