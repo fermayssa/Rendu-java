@@ -1,10 +1,12 @@
 package tn.esprit.gestionzoo.entities;
 
+import tn.esprit.gestionzoo.exceptions.*;
+
 public class Zoo {
     private Animal[] animals;
     private String name;
     private String city;
-    //int nbrCages;
+    int nbrCages;
     private static final int NBR_CAGES = 25;
 
     private Aquatic[] aquaticAnimals = new Aquatic[10];
@@ -89,7 +91,7 @@ public class Zoo {
 
 
 
-    public boolean addAnimal(Animal animal) {
+    //public void addAnimal(Animal animal) {
         // Vérifier si le zoo est plein
        /* int count = 0;
         for (int i = 0; i < animals.length; i++) {
@@ -101,17 +103,19 @@ public class Zoo {
             System.out.println(" Impossible d'ajouter : zoo plein !");
             return false;
         }*/
+        //-----------------vérification si le zoo est plan avec l'ancienne versio avec bool
         // Étape 1 : Vérifier si le zoo est plein
-        if (isZooFull()) {
+        /*if (isZooFull()) {
             System.out.println(" : le zoo est plein !");
             return false;
-        }
+        }*/
+        //---------------------------------------------------------------------------------
 
         // Vérifier si l’animal existe déjà (même nom)
-        for (int i = 0; i < animals.length; i++) {
+        /*for (int i = 0; i < animals.length; i++) {
             if (animals[i] != null && animals[i].getName().equals(animal.getName())) {
                 System.out.println(" tn.esprit.gestionzoo.entities.Animal déjà présent : " + animal.getName());
-                return false;
+                //return false;
             }
         }
 
@@ -120,11 +124,55 @@ public class Zoo {
             if (animals[i] == null) {
                 animals[i] = animal;
                 System.out.println(" tn.esprit.gestionzoo.entities.Animal ajouté : " + animal.getName());
-                return true;
+                //return true;
             }
         }
 
-        return false; // par sécurité
+        //return false; // par sécurité*/
+        //---------------------------------------------------------------------
+        // Vérifier si le zoo est plein
+        /*if (isZooFull()) {
+            throw new IllegalStateException("Le zoo est plein, impossible d'ajouter un nouvel animal !");
+        }
+
+        // Vérifier que l'animal n'existe pas déjà
+        for (int i = 0; i < animals.length; i++) {
+            if (animals[i] != null && animals[i].equals(animal)) {
+                throw new IllegalArgumentException("Cet animal existe déjà dans le zoo !");
+            }
+        }
+
+        // Ajouter l'animal dans la première case vide
+        for (int i = 0; i < animals.length; i++) {
+            if (animals[i] == null) {
+                animals[i] = animal;
+                System.out.println(animal.getName() + " a été ajouté au zoo !");
+                return; // fin de la méthode
+            }
+        }*/
+        //-----------------------------------------------------------------
+
+    //}
+    public void addAnimal(Animal animal) throws ZooFullException, InvalidAgeException {
+
+        // Vérification de l'âge
+        if (animal.getAge() < 0) {
+            throw new InvalidAgeException();
+        }
+
+        // Vérification si le zoo est plein
+        if (isZooFull()) {
+            throw new ZooFullException();
+        }
+
+        // Ajout dans la première case vide
+        for (int i = 0; i < animals.length; i++) {
+            if (animals[i] == null) {
+                animals[i] = animal;
+                System.out.println(animal.getName() + " a été ajouté au zoo ✅");
+                return;
+            }
+        }
     }
 
 
